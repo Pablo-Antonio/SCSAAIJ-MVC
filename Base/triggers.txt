@@ -1,0 +1,40 @@
+//QUEDO EN PRUEBAS ESTE TRIGGER, MARCA UN ERROR
+//Trigger cuando NO se realiza un dictamen
+CREATE TRIGGER completar_after_update 
+  AFTER UPDATE
+  ON asistencias FOR EACH ROW
+  INSERT INTO historial (idHistorial,idAsistencia)
+    VALUES (New.id,NEW.id);
+
+//QUEDO EN PRUEBAS ESTE TRIGGER, MARCA UN ERROR
+//Trigger cuando SI se realiza un dictamen
+CREATE TRIGGER dictamen_after_insert
+  AFTER INSERT
+  ON historial FOR EACH ROW
+  UPDATE asistencias SET status = 2 WHERE id = NEW.idAsistencia
+
+/*****************************************************************************************/
+---------- TRIGGERS FUNCIONALES ----------
+//Trigger cuando NO se realiza un dictamen
+DELIMITER $$
+CREATE TRIGGER completar_after_update 
+AFTER UPDATE
+ON asistencias FOR EACH ROW
+BEGIN  
+ IF NEW.status = 0 THEN
+ INSERT INTO historial (idHistorial,idAsistencia)
+ VALUES (New.id,NEW.id);
+ END IF;
+END;$$
+
+/***************************************************************************************/
+------------ PROCEDIMIENTO ALMACENADOS ------------
+DELIMITER $$
+CREATE PROCEDURE prueba ()
+BEGIN
+  SELECT * 
+  FROM asistencias;
+END$$
+$$
+
+

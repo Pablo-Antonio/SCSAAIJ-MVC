@@ -1,0 +1,140 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 3px;
+    background: rgba(40, 160, 124, 0.651);
+  }
+  
+  .header {
+    padding: 5px;
+    text-align: center;
+    background: white;
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .leftcolumn {   
+    float: left;
+    width: 65%;
+    height: 20%;
+  }
+
+  .rightcolumn {
+    float: left;
+    width: 35%;
+    height: 375px;
+    margin-top: 30px;
+    background-color: #f1f1f1;
+    padding-left: 10px;
+  }
+
+  .card {
+    background-color: white;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .footer {
+    padding: 2px;
+    text-align: center;
+    background: #ddd;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+
+/* FORMULARIO*/
+input[type=text], select {
+  width: 49%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(40, 160, 124);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #b8b6b6; /*contorno*/
+  padding: 10px;
+  height: 0%;
+}
+
+textarea{
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 3px solid rgb(40, 160, 124);
+  border-radius: 4px;
+  background-color: #ffffffd5;
+  font-size: 13px;
+  resize: none;
+}
+
+/*BOTON*/
+.button {
+  position: relative;
+  background-color: rgb(40, 160, 124);
+  border: none;
+  border-bottom: 2px solid rgb(255, 238, 6);
+  font-size: 15px;
+  color: #000000;
+  padding: 8px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
